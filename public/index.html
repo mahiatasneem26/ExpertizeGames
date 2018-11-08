@@ -40,7 +40,19 @@
       <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
     </div>
     <p id="load">Firebase SDK Loading&hellip;</p>
-
+<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+    authDomain: "expertize-games.firebaseapp.com",
+    databaseURL: "https://expertize-games.firebaseio.com",
+    projectId: "expertize-games",
+    storageBucket: "expertize-games.appspot.com",
+    messagingSenderId: "839552852802"
+  };
+  firebase.initializeApp(config);
+</script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
@@ -62,6 +74,7 @@
           document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
         }
       });
+	  
     </script>
   </body>
 </html>
