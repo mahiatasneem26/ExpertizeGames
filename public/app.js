@@ -7,7 +7,7 @@ function loginFunction(){
 	  // The signed-in user info.
 	  var user = result.user;
 	  console.log(user);
-	  console.log("is logged in");
+	  console.log("is currently logged in");
 	  // ...
 	}).catch(function(error) {
 	  // Handle Errors here.
@@ -19,4 +19,14 @@ function loginFunction(){
 	  var credential = error.credential;
 	  // ...
 	});
+	//ReadFromDatabase(); <-- causing problems and so cannot implement just yet
+	
+	console.log("sup dude!")
+}
+function ReadFromDatabase(){
+	var userID = firebase.auth().currentUser.uid;
+	var database = firebase.database();
+	firebase.database().ref('users').once('value').then(function(snapshot){
+		console.log(snapshot.val());
+		});
 }
