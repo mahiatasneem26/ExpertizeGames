@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 	
+		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="main.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +19,7 @@
     <script defer src="/__/firebase/init.js"></script>
 	<script defer src="main.js"></script>
 
-    <style media="screen">
+    <!-- <style media="screen">
       body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif;margin: 0; padding: 0; }
       #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; 				border-radius: 3px; }
       #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
@@ -31,14 +32,15 @@
         body, #message { margin-top: 0; background: white; box-shadow: none; }
         body { border-top: 16px solid #ffa100; }
       }
-    </style>
+    </style> -->
   </head>
   
   <body>
 	  <!-- navbar -->  
 	   <nav class="navbar navbar-expand-lg fixed-top ">  
 	   		<a class="navbar-brand" href="#">Home</a>
-	  	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">  
+	  	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 				
+					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">  
 	   		 	<span class="navbar-toggler-icon"></span>
 	  		</button>
 	  	  	<div class="collapse navbar-collapse " id="navbarSupportedContent">    
@@ -65,13 +67,12 @@
 		 		<div class="description ">
 		    		<h1>
 						Welcome to Expertize Games!
-						<p>Challenge yourself to a trivia on your favorite tv show or even create your own!</p>   
-		   				<!-- <button class="btn btn-outline-secondary btn-lg">See more</button> -->   
+						<p>Challenge yourself to a trivia on your favorite tv show or even create your own!</p>    
 					</h1>  
 		   	 	</div>
 		   </div>	  
 	  	</header>
-	  	<!-- <button onclick="loginFunction()">Login</button> -->
+		
 	  <!-- genres -->
 	  	<div class="genres" id = "genres">
 		  
@@ -87,7 +88,8 @@
 					
 	     			<div class="col ">
 						<h1 class="text-center">Romance</h1>
-	      	  			<img src="images/romance.jpg" class="img-fluid">
+						<p><a href="https://www.google.com/"><img src="images/romance.jpg" class="img-responsive center-block"></a></p>
+	      	  			<!-- <img src="images/romance.jpg" class="img-fluid"> -->
 	     			</div>
 					
 	     			<div class="col ">
@@ -99,29 +101,7 @@
 	  		</div>
 	  	</div>
 	  
-	  
-      <!-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-          // // The Firebase SDK is initialized and available here!
-          //
-          // firebase.auth().onAuthStateChanged(user => { });
-          // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-          // firebase.messaging().requestPermission().then(() => { });
-          // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-          //
-          // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-          try {
-            let app = firebase.app();
-            let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-            document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-          } catch (e) {
-            console.error(e);
-            document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-          }
-        });
-       >/script> -->		
+	  		
 	  <script type="text/javascript" src='main.js'></script>
 	  
   </body>
