@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        margin: 40px;
+      }
+
+      .wrapper {
+        display: grid;
+        grid-template-rows: 160px 160px;
+        grid-template-columns: 400px 400px;
+        grid-gap: 10px;
+        color: #444;
+      }
+
+      .box {
+        background-color: #444;
+        color: #fff;
+        border-radius: 5px;
+        /*   padding: 20px; */
+        font-size: 150%;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .centeredImage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: image-height/2;
+        margin-left: image-width/2;
+      }
+
+    </style>
+
+    <meta charset="utf-8">
+
+    <body style="background-color:black;">>
+      <img src="images/Expertize_Logo.png" class=".centeredImage" width="576" height="324">
+      <div class="wrapper">
+        <div class="box a">Answer 1</div>
+        <div class="box b">Answer 2</div>
+        <div class="box c">Answer 3</div>
+        <div class="box d">Answer 4</div>
+      </div>
+    </body>
+  </head>
+</html>
