@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        margin: 40px;
+      }
+
+      .wrapper {
+        display: grid;
+        grid-template-rows: 100px;
+        grid-template-columns: 100px 100px 100px 100px 100px 100px;
+        grid-gap: 10px;
+        color: #444;
+      }
+
+      .box {
+        background-color: #444;
+        color: #fff;
+        border-radius: 5px;
+        /*   padding: 20px; */
+        font-size: 150%;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      @font-face { font-family: karmatic_arcade; src: url('ka1.ttf'); }
+
+      h1 {
+        letter-spacing: 7px;
+      }
+
+      .centeredImage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: image-height/2;
+        margin-left: image-width/2;
+      }
+
+    </style>
+
+    <meta charset="utf-8">
+
+    <body style="background-color:black;">>
+      <img src="images/Expertize_Logo.png" class=".centeredImage" width="576" height="324">
+      <h1 style="font-family:karmatic_arcade;color:BlueViolet;font-size:200%;">All Challenges</h1>
+      <div class="wrapper">
+        <div class="box a">Quiz 1</div>
+        <div class="box b">Quiz 2</div>
+        <div class="box c">Quiz 3</div>
+        <div class="box d">Quiz 4</div>
+        <div class="box e">Quiz 5</div>
+        <div class="box f">Quiz 6</div>
+      </div>
+      <h1 style="font-family:karmatic_arcade;color:BlueViolet;font-size:200%;">Favorites</h1>
+      <div class="wrapper">
+        <div class="box a">Quiz 1</div>
+        <div class="box b">Quiz 2</div>
+        <div class="box c">Quiz 3</div>
+      </div>
+    </body>
+  </head>
+</html>
