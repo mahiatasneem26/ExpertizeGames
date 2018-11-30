@@ -5,39 +5,32 @@ body {
 }
 
 /*Navigation bar styles*/
-.navbar{ 
-	background:#800080;
+/*.nav-link {
+	color: #28a745;
+	cursor: pointer;
+}*/
+/*.nav-link{
+	margin-right:
+	1em !important;
+	color: #28a745;
+}*/
+
+
+.navbar-dark .navbar-nav .nav-link:hover { 
+	/*background: #fff;*/
+	color: #fff; 
+	cursor: pointer;
+	
 }
 
-.nav-link , .navbar-brand{ 
-	color: #f4f4f4; 
-	cursor: pointer;
-}
-.nav-link{ 
-	margin-right: 
-	1em !important;
-}
-.nav-link:hover{ 
-	background: #f4f4f4; 
-	color: #f97300; 
+.navbar-nav >li{
+	padding-left: 5px;
+	padding-right: 5px;
 }
 .navbar-collapse{ 
 	justify-content: 
 	flex-end;
 }
-.navbar-toggler{  b
-	background:#fff !important;
-}
-
-/*
-.bg-dark{
-background-color:#343a40 !important
-}
-.bg-primary{
-background-color:#007bff!important
-}*/
-
-
 
 /*header style*/
 .header{
@@ -101,14 +94,12 @@ background-color:#007bff!important
     margin-right: auto;
     margin-left: auto;
 }
-
 .description{
     position: absolute;
     top: 300px;
     margin: auto;
     padding: 1em;
 }
-
 .description h1{
  	color:#6a5acd ;
 	position: relative;
@@ -125,19 +116,22 @@ background-color:#007bff!important
 
 /*Genre styles*/
 .genres{
-	background-color: rgb(132, 215, 255);
+	/*background-color: rgb(132, 215, 255);*/
+	background-color: white;
  	margin: auto;
 	padding: 1em;
  	position: relative; 
+	overflow: hidden;
 }
-
 .genres h1{
  	color:#6a5acd;
- 	margin: 2em; 
+ 	margin: 0;
+	margin-block-start: 1em; 
 }
 
 .col {
 	padding-left: 3px;
+	overflow: hidden;
 }
 
 .genres img{
@@ -146,4 +140,108 @@ background-color:#007bff!important
   	margin-left: 4em;
 	padding-right: 6px;
 	padding-left : 3px;
+	margin-top: 1em;
+	
+}
+
+/*Romance show page styles*/
+.romanceShows{
+	background-image: linear-gradient(to bottom right, red, blue);
+ 	margin: 0;
+	padding: 1em;
+ 	position: relative; 
+	max-height: 100%;
+	overflow:hidden;
+	
+}
+.text-center {
+	margin-block-start: 4em;
+	margin-inline-end: 2em;
+}
+.row {
+	margin-block-start : 2em;
+}
+
+.romanceShows img {
+	width: 312px;
+	height: 312px;
+}
+
+/* Comedy show page styles*/
+.comedyShows{
+	background-image: linear-gradient(to bottom right, yellow, blue);
+ 	margin: auto;
+	padding: 1em;
+ 	position: relative; 
+}
+.text-center {
+	margin-block-start: 4em;
+	margin-inline-end: 2em;
+}
+.row {
+	margin-block-start : 2em;
+}
+.comedyShows img {
+	width: 312px;
+	height: 312px;
+}
+
+/* Thriller show page styles*/
+.thrillerShows{
+	background-image: linear-gradient(to bottom right, gray, black, gray);
+ 	margin: auto;
+	padding: 1em;
+ 	position: relative; 
+}
+.text-center {
+	margin-block-start: 4em;
+	margin-inline-end: 2em;
+}
+.row {
+	margin-block-start : 2em;
+}
+.thrillerShows img {
+	width: 312px;
+	height: 312px;
+}
+
+/*Create Challenges page styles*/
+.CreateChallenge {
+	padding-top: 3em;
+	padding-left: 15em;
+	padding-right: 15em;
+	padding-bottom:15em;
+	/*background-image: linear-gradient(to bottom right, white, white);*/
+	background-color: LightSkyBlue;
+	position: relative; 
+	
+}
+
+.description {
+    position: absolute;
+    top: 50px;
+    left: 250px;
+    margin: auto;
+    padding: 2em;
+	text-color:black;
+}
+
+.createTrivia {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-block-start: 250px;
+}
+
+/*.label {
+	padding-left: 5px;
+}
+*/
+.buttons {
+	padding-left:450px;
+}
+.col-sm-1 {
+	padding-left: 5px;
 }
