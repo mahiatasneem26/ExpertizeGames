@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <style type="text/css">
+
+      img {
+        display: block;
+        margin-top: -120px;
+        margin-bottom: -50px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      body {
+        margin: 40px;
+      }
+
+      .wrapper {
+        display: grid;
+        grid-template-rows: 160px 160px;
+        grid-template-columns: 400px 400px;
+        grid-gap: 10px;
+        color: #444;
+      }
+
+      .box {
+        background-color: #444;
+        color: #fff;
+        border-radius: 5px;
+        /*   padding: 20px; */
+        font-size: 150%;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .centeredImage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: image-height/2;
+        margin-left: image-width/2;
+      }
+
+    </style>
+
+    <meta charset="utf-8">
+
+    <body style="background-color:black;" onload="GetChallenge()">
+    	  <table id="QuestionsTable">
+    	  </table>
+    	  <button onclick="NewQuestion()">NewQuestion</button>
+      <header class="header">
+        <div class = "row">
+                  <img src="images/Expertize_Logo.png" width="624" height="351">
+        </div>
+      </header>
+      <div class="wrapper">
+        <div class="box a">Answer 1</div>
+        <div class="box b">Answer 2</div>
+        <div class="box c">Answer 3</div>
+        <div class="box d">Answer 4</div>
+      </div>
+
+      <script type="text/javascript" src='app.js'>
+      function NewQuestion(){
+      	var newQuestionKey = firebase.database().ref().child('Arrow Quiz 1/Questions').push().key;
+      	firebase.database().ref('Arrow Quiz 1/Questions/' + newQuestionKey).set("Olicity");
+      }
+      </script>
+
+    </body>
+  </head>
+</html>
