@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 	
+		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Thriller shows</title>
+
+</head>
+
+<body>
+  <!-- navbar -->  
+   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">  
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Home</button>
+  	  	<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   		 	<span class="navbar-toggler-icon"></span>
+  		</button> -->
+	</nav> 
+	<div class="CreateChallenge" id = "CreateChallenge">
+		<!--header -->
+	 	<header class="header">
+		 	<div class="container">
+		 		<div class="description ">
+		    		<h1 class = "text-dark" text-dark >
+						Create your own challenge here:  
+					</h1>  
+		   	 	</div>
+		   </div>	  
+	  	</header>
+		<div class="createTrivia">
+			<form>
+	  	  	  <div class="form-row">	  
+			  		<div class="form-group col-md-6">
+	     				<label for="Genre">   Genre</label>
+	     	    		<input type="text" class="form-control" id="Genre" placeholder="Comedy">
+	      	  		</div>
+	    	 		<div class="form-group col-md-6">
+	      				<label for="showName">   Name of the show</label>
+	     	   	 		<input type="text" class="form-control" id="showName" placeholder="The Office">
+	    	  		</div>
+	  	  	  </div>
+	  	  	  <div class="form-group">
+	    	 		<label for="question"> Question</label>
+	    	 		<input type="text" class="form-control" id="question" placeholder="What's the name of the lead character? ">
+	  	  	  </div>
+	  	  	  <div class="form-group">
+	    	  		<label for="answer"> Answer</label>
+	    	  		<input type="text" class="form-control" id="answer" placeholder="Michael Scott">
+	      	  </div>
+	 	  	  <div class="form-row">
+	      	 	 <div class="form-group col-md-6">
+	      	 	 	<label for="hint"> Hint</label>
+	     	 	 	<input type="text" class="form-control" id="hint">
+	      	  	</div>
+			</div>
+		   </form>
+		   <div class="buttons" id = "buttons">
+		  	<div class="row">
+		    	<div class="col-sm-2">
+		      	  <button type="submit" class="btn btn-success">Submit</button>
+		    	</div>
+		    	<div class="col-sm-2">
+		      	  <button type="submit" class="btn btn-success">Add another</button>
+		    	</div>
+		 	</div>
+		   </div>
+		</div >
+	</div>
+</body>
+</html>
