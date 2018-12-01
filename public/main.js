@@ -20,18 +20,7 @@ function loginFunction(){
 	  // ...
 	});
 }
-$(document).ready(function(){
- $('.header').height($(window).height());
-})
 
-/*Scroll effect*/
-$(".navbar a").click(function(){
-  $("body,html").animate({
-   scrollTop:$("#" + $(this).data('value')).offset().top
-  },1000)
-  
-})
- 
 function ReadFromDatabase(){
  	var userID = firebase.auth().currentUser.uid;
  	var database = firebase.database();
@@ -39,7 +28,7 @@ function ReadFromDatabase(){
  		console.log(snapshot.val());
  		});
  }
- 
+
 function GetChallenge(){
  	//var userID = firebase.auth().currentUser.uid;
  	var database = firebase.database();
@@ -61,12 +50,12 @@ function GetChallenge(){
  		}
  		});
  }
- 
+
  function NewQuestion(){
  	var newQuestionKey = firebase.database().ref().child('Arrow Quiz 1/Questions').push().key;
  	firebase.database().ref('Arrow Quiz 1/Questions/' + newQuestionKey).set("Olicity");
  }
- 
+
  var field = 1;
  function add_fields() {
      field++;
