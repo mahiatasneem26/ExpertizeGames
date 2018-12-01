@@ -61,23 +61,34 @@ function NewQuestion(){
 }
 
 function GetQuiz(genre){
-	console.log(genre);
-	//var userID = firebase.auth().currentUser.uid;
+
+	/* Krista: You can use URL parameters to pass a variable to the webpage.
+	Add a query parameter like so: localhost:5000/ChallengeScreen.html?genre=comedy
+	And you can access the variable in your javascript with the code below:
+	 */
+	var urlParams = new URLSearchParams(location.search);
+	console.log("urlParams.get(\"genre\"):", urlParams.get("genre"));
+	/* Append the query parameter in your links from Categories.html
+	If you use query parameters, you don't need a parameter in this method.
+	You can use this same technique for the individual challenge page as well.
+	See: https://www.codexworld.com/how-to/get-query-string-from-url-javascript/ */
+
 	var database = firebase.database();
-	firebase.database().ref('users').on('value',function(snapshot){
-		console.log(snapshot.val());
-		var table = document.getElementById("listOfQuizzes");
-		//var row = table.insertRow(0);
-		//var cell = row.insertCell(0);
-		//cell.innerHTML = "ARROW QUIZ!"
-		var i = 0;
+	firebase.database().ref('challenge/' + genre).on('value',function(snapshot){
+
+		console.log("snapshot.val():", snapshot.val());
+
+		var listOfQuizzes = document.getElementById("listOfQuizzes");
+
 		for(var key in snapshot.val()){
-			console.log(key);
-			/*if(QuestionDictionary.hasOwnProperty(key)){
-				var row = table.insertRow(i);
-				var cell = row.insertCell();
-				cell.innerHTML = QuestionDictionary[key];*/
+			console.log("key:", key); // key is the title of your quiz
+			console.log("quiz attributes", snapshot.val()[key]); // This obj contains the quiz's attributes
+
+			// Here you'll want to create an HTML element (for instance a div)
+			// and populate according to the respective quiz.
+			// Then append the element to the listOfQuizzes element.
+			// See: https://www.w3schools.com/jsref/met_document_createelement.asp
+
 			}
-			i++;
 		});
 }
