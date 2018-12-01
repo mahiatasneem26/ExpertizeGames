@@ -53,8 +53,46 @@
     </style>
 
     <meta charset="utf-8">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.5.4/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.5.4/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.5.4/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.5.4/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.5.4/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <script defer src="app.js"></script>
+    <script>
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+  authDomain: "expertize-games.firebaseapp.com",
+  databaseURL: "https://expertize-games.firebaseio.com",
+  projectId: "expertize-games",
+  storageBucket: "expertize-games.appspot.com",
+  messagingSenderId: "839552852802"
+};
+firebase.initializeApp(config);
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
 
-    <body style="background-color:black;">>
+    try {
+      let app = firebase.app();
+      let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+      document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+    } catch (e) {
+      console.error(e);
+      document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+    }
+  });
+
+</script>
+<script type="text/javascript" src='main.js'></script>
+    </head>
+
+    <body onload="GetQuiz('comedy')" style="background-color:black;">
       <header class="header">
         <div class = "row">
                   <img src="images/Expertize_Logo.png" width="624" height="351">
@@ -63,14 +101,14 @@
 
       <h1 style="font-family:karmatic_arcade;color:#E9EBF1;font-size:280%;">All Challenges</h1>
       <!-- Need js code to get challenge names depending on show -->
-      <div class="wrapper">
-        <div class="box a"><a href="ShowPage.html">Quiz 1</a></div>
+      <div id="listOfQuizzes" class="wrapper">
+        <!--<div class="box a"><a href="ShowPage.html">Quiz 1</a></div>
         <div class="box b"><a href="ShowPage.html">Quiz 2</a></div>
         <div class="box c"><a href="ShowPage.html">Quiz 3</a></div>
         <div class="box d"><a href="ShowPage.html">Quiz 4</a></div>
         <div class="box e"><a href="ShowPage.html">Quiz 5</a></div>
         <div class="box f"><a href="ShowPage.html">Quiz 6</a></div>
-
+        --->
       </div>
       <h1 style="font-family:karmatic_arcade;color:#E9EBF1;font-size:280%;">Favorites</h1>
       <div class="wrapper">
@@ -80,5 +118,4 @@
       </div>
       <div class="border"></div>
     </body>
-  </head>
 </html>

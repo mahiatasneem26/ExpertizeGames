@@ -1,4 +1,5 @@
 var provider = new firebase.auth.GoogleAuthProvider();
+
 function loginFunction(){
 	console.log(provider);
 	firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -20,9 +21,10 @@ function loginFunction(){
 	  // ...
 	});
 	ReadFromDatabase();
-	
+
 	console.log("sup dude!")
 }
+
 function ReadFromDatabase(){
 	var userID = firebase.auth().currentUser.uid;
 	var database = firebase.database();
@@ -30,6 +32,7 @@ function ReadFromDatabase(){
 		console.log(snapshot.val());
 		});
 }
+
 function GetChallenge(){
 	//var userID = firebase.auth().currentUser.uid;
 	var database = firebase.database();
@@ -51,7 +54,30 @@ function GetChallenge(){
 		}
 		});
 }
+
 function NewQuestion(){
 	var newQuestionKey = firebase.database().ref().child('Arrow Quiz 1/Questions').push().key;
 	firebase.database().ref('Arrow Quiz 1/Questions/' + newQuestionKey).set("Olicity");
+}
+
+function GetQuiz(genre){
+	console.log(genre);
+	//var userID = firebase.auth().currentUser.uid;
+	var database = firebase.database();
+	firebase.database().ref('users').on('value',function(snapshot){
+		console.log(snapshot.val());
+		var table = document.getElementById("listOfQuizzes");
+		//var row = table.insertRow(0);
+		//var cell = row.insertCell(0);
+		//cell.innerHTML = "ARROW QUIZ!"
+		var i = 0;
+		for(var key in snapshot.val()){
+			console.log(key);
+			/*if(QuestionDictionary.hasOwnProperty(key)){
+				var row = table.insertRow(i);
+				var cell = row.insertCell();
+				cell.innerHTML = QuestionDictionary[key];*/
+			}
+			i++;
+		});
 }

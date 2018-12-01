@@ -45,7 +45,44 @@
     </style>
 
     <meta charset="utf-8">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.5.4/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.5.4/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.5.4/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.5.4/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.5.4/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <script defer src="app.js"></script>
+    <script>
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+  authDomain: "expertize-games.firebaseapp.com",
+  databaseURL: "https://expertize-games.firebaseio.com",
+  projectId: "expertize-games",
+  storageBucket: "expertize-games.appspot.com",
+  messagingSenderId: "839552852802"
+};
+firebase.initializeApp(config);
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
 
+    try {
+      let app = firebase.app();
+      let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+      document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+    } catch (e) {
+      console.error(e);
+      document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+    }
+  });
+
+</script>
+<script type="text/javascript" src='main.js'></script>
+</head>
     <body style="background-color:black;" onload="GetChallenge()">
     	  <table id="QuestionsTable">
     	  </table>
@@ -63,12 +100,11 @@
       </div>
 
       <script type="text/javascript" src='app.js'>
-      function NewQuestion(){
-      	var newQuestionKey = firebase.database().ref().child('Arrow Quiz 1/Questions').push().key;
-      	firebase.database().ref('Arrow Quiz 1/Questions/' + newQuestionKey).set("Olicity");
-      }
+        function NewQuestion(){
+        	var newQuestionKey = firebase.database().ref().child('Arrow Quiz 1/Questions').push().key;
+        	firebase.database().ref('Arrow Quiz 1/Questions/' + newQuestionKey).set("Olicity");
+        }
       </script>
 
     </body>
-  </head>
 </html>
