@@ -32,7 +32,6 @@ function loginFunction(){
 	  // ...
 	});
 }
-<<<<<<< HEAD
 // $(document).ready(function(){
 //  $('.header').height($(window).height());
 // })
@@ -45,9 +44,6 @@ function loginFunction(){
 //
 // })
  
-=======
-
->>>>>>> a172980bf080754e87dcd37a0cc351b056c2a0c1
 function ReadFromDatabase(){
  	var userID = firebase.auth().currentUser.uid;
  	var database = firebase.database();
@@ -55,11 +51,11 @@ function ReadFromDatabase(){
  		console.log(snapshot.val());
  		});
  }
-
+ 
 function GetChallenge(){
  	//var userID = firebase.auth().currentUser.uid;
  	var database = firebase.database();
- 	firebase.database().ref('Arrow Quiz 1').on('value',function(snapshot){
+ 	firebase.database().ref('Game of Thrones').on('value',function(snapshot){
  		console.log(snapshot.val()["Questions"]);
  		var QuestionDictionary = snapshot.val()["Questions"];
  		var table = document.getElementById("QuestionsTable");
@@ -77,12 +73,11 @@ function GetChallenge(){
  		}
  		});
  }
-
+ 
  function NewQuestion(){
  	var newQuestionKey = firebase.database().ref().child('Arrow Quiz 1/Questions').push().key;
  	firebase.database().ref('Arrow Quiz 1/Questions/' + newQuestionKey).set("Olicity");
  }
-<<<<<<< HEAD
  
  // function addElement(parentId, elementTag, elementId, html) {
  //     // Adds an element to the document
@@ -116,15 +111,3 @@ function GetChallenge(){
    		$('createTrivia').append(newDiv);
  	});
  });})
-=======
-
- var field = 1;
- function add_fields() {
-     field++;
-     var objTo = document.getElementById('room_fileds')
-     var divtest = document.createElement("div");
-     divtest.innerHTML = '<div class="label">Room ' + field +':</div><div class="content"><span>Width: <input type="text" style="width:48px;" name="width[]" value="" /><small>(ft)</small> X</span><span>Length: <input type="text" style="width:48px;" namae="length[]" value="" /><small>(ft)</small></span></div>';
-
-     objTo.appendChild(divtest)
- }
->>>>>>> a172980bf080754e87dcd37a0cc351b056c2a0c1
