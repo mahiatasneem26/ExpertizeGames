@@ -32,18 +32,7 @@ function loginFunction(){
 	  // ...
 	});
 }
-// $(document).ready(function(){
-//  $('.header').height($(window).height());
-// })
 
-/*Scroll effect*/
-// $(".navbar a").click(function(){
-//   $("body,html").animate({
-//    scrollTop:$("#" + $(this).data('value')).offset().top
-//   },1000)
-//
-// })
- 
 function ReadFromDatabase(){
  	var userID = firebase.auth().currentUser.uid;
  	var database = firebase.database();
@@ -51,7 +40,7 @@ function ReadFromDatabase(){
  		console.log(snapshot.val());
  		});
  }
- 
+
 function GetChallenge(){
  	//var userID = firebase.auth().currentUser.uid;
  	var database = firebase.database();
@@ -73,41 +62,10 @@ function GetChallenge(){
  		}
  		});
  }
- 
+
  function NewQuestion(){
  	var newQuestionKey = firebase.database().ref().child('Arrow Quiz 1/Questions').push().key;
  	firebase.database().ref('Arrow Quiz 1/Questions/' + newQuestionKey).set("Olicity");
  }
+
  
- // function addElement(parentId, elementTag, elementId, html) {
- //     // Adds an element to the document
- //     var p = document.getElementById(parentId);
- //     var newElement = document.createElement(elementTag);
- //     newElement.setAttribute('id', elementId);
- //     newElement.innerHTML = html;
- //     p.appendChild(newElement);
- // }
- //
- // var newField = 1;
- // function add_question() {
- // 	 var el = document.createElement('div');
- // 	 newField ++;
- // 	 var html = ''
- // 	 document.getElementById('container').appendChild(el);
- // }
- //
- // function addFile() {
- //     fileId++; // increment fileId to get a unique ID for the new element
- //     var html = '<div class = "newField border" id="newField"> ' +
- //                '<a href="" onclick="javascript:removeElement('file-' + fileId + ''); return false;">Remove</a>';
- //     addElement('files', 'p', 'file-' + fileId, html);
- // }
- 
- $(document).ready(function() {
- 	$('#addAnother').click(function(){
- 		var newDiv = $('<div class = "newField border" id="newField"><form><div class="col-lg-8"><label for="question"> Question</label><input type="text" class="form-control" id="question" placeholder="What is the name of the lead character? "></div><div class="col-lg-8"><label for="answer"> Answer</label><input type="text" class="form-control" id="answer" placeholder="Michael Scott"></div><div class="col-lg-8">
-			  	      	 	<label for="hint"> Hint</label><input type="text" class="form-control" id="hint"></div></form></div>');
-   //newDiv.style.background = "#000";
-   		$('createTrivia').append(newDiv);
- 	});
- });})

@@ -36,13 +36,11 @@ function ReadFromDatabase(){
 function GetChallenge(){
 	//var userID = firebase.auth().currentUser.uid;
 	var database = firebase.database();
-	firebase.database().ref('Arrow Quiz 1').on('value',function(snapshot){
+	firebase.database().ref('Thriller/Game of Thrones/Set One/Questions').on('value',function(snapshot){
 		console.log(snapshot.val()["Questions"]);
 		var QuestionDictionary = snapshot.val()["Questions"];
 		var table = document.getElementById("QuestionsTable");
-		//var row = table.insertRow(0);
-		//var cell = row.insertCell(0);
-		//cell.innerHTML = "ARROW QUIZ!"
+
 		var i = 0;
 		for(var key in QuestionDictionary){
 			if(QuestionDictionary.hasOwnProperty(key)){
@@ -56,8 +54,12 @@ function GetChallenge(){
 }
 
 function NewQuestion(){
-	var newQuestionKey = firebase.database().ref().child('Arrow Quiz 1/Questions').push().key;
-	firebase.database().ref('Arrow Quiz 1/Questions/' + newQuestionKey).set("Olicity");
+	var question = document.getElementById("question").value;
+	var answer = document.getElementById("question").value;
+	var newQuestionKey = firebase.database().ref().child('Created Quiz/Questions').push().key;
+	var newQuestionVal = firebase.database().ref().child('Created Quiz/Questions').push().key;
+	firebase.database().ref('Created Quiz/Questions' + newQuestionKey).set(question);
+	firebase.database().ref('Created Quiz/Questions' + newQuestionVal).set(answer);
 }
 
 function GetQuiz(genre){

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="main.css">
     <meta charset="utf-8">
@@ -50,68 +50,47 @@
         margin-top: image-height/2;
         margin-left: image-width/2;
       }
-	  
+
 	  .header {
 		  margin-left: 670px;
 		  margin-bottom: 20px;
 	  }
 
     </style>
-</head>
+
     <meta charset="utf-8">
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/5.5.4/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/5.5.4/firebase-auth.js"></script>
-    <script defer src="/__/firebase/5.5.4/firebase-database.js"></script>
-    <script defer src="/__/firebase/5.5.4/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/5.5.4/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+
     <script defer src="app.js"></script>
+
     <script>
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
-  authDomain: "expertize-games.firebaseapp.com",
-  databaseURL: "https://expertize-games.firebaseio.com",
-  projectId: "expertize-games",
-  storageBucket: "expertize-games.appspot.com",
-  messagingSenderId: "839552852802"
-};
-firebase.initializeApp(config);
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
+		// Initialize Firebase
+		var config = {
+		  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+		  authDomain: "expertize-games.firebaseapp.com",
+		  databaseURL: "https://expertize-games.firebaseio.com",
+		  projectId: "expertize-games",
+		  storageBucket: "expertize-games.appspot.com",
+		  messagingSenderId: "839552852802"
+		};
+		firebase.initializeApp(config);
+		</script>
 
-    try {
-      let app = firebase.app();
-      let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-      document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-    } catch (e) {
-      console.error(e);
-      document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-    }
-  });
+		<script type="text/javascript" src='main.js'></script>
 
-</script>
-<script type="text/javascript" src='main.js'></script>
 </head>
-    <body style="background-color:black;" onload="GetChallenge()">
-	    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">  
+    <body style="background-color:gray;" onload="GetChallenge()">
+	    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
 	 		<a href="/homepage" class = "btn btn-outline-success my-2 my-sm-0" role = "button">Home</a>
-	   	  	<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-	 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    		 	<span class="navbar-toggler-icon"></span>
-	   		</button> -->
 	   	  	<div class="collapse navbar-collapse " id="navbarSupportedContent">
-	 			<ul class="navbar-nav"> 
+	 			<ul class="navbar-nav">
 	   	    		<li class="nav-item">
 	 					<!-- <button class="btn btn-outline-success my-2 my-sm-0" type ="submit" data-value="login"href="#" >Create!</button> -->
 	 					<a href="/CreateChallenge" class = "btn btn-outline-success my-2 my-sm-0" role = "button">Create!</a>
-	         		</li> 
+	         		</li>
 	   			</ul>
-	   		</div> 
+	   		</div>
 	 	</nav>
     	  <table id="QuestionsTable">
     	  </table>
@@ -121,20 +100,14 @@ firebase.initializeApp(config);
                   <h1 class="text-white text-center">GAME OF THRONES</h1>
         </div>
       </header>
-	  
-      <div class="wrapper">
-        <div class="box a">Quiz 1</div>
-        <div class="box b">Quiz 2</div>
-        <div class="box c">Quiz 3</div>
-        <div class="box d">Quiz 4</div>
-      </div>
 
-      <script type="text/javascript" src='app.js'>
-        function NewQuestion(){
-        	var newQuestionKey = firebase.database().ref().child('Arrow Quiz 1/Questions').push().key;
-        	firebase.database().ref('Arrow Quiz 1/Questions/' + newQuestionKey).set("Olicity");
-        }
-      </script>
+			<form action="/action_page.php">
+		  <input type="radio" name="q1a" value="Arya"> Arya<br>
+		  <input type="radio" name="q1a" value="Sansa"> Sansa<br>
+		  <input type="radio" name="q1a" value="Rickon"> Rickon<br>
+			<input type="radio" name="q1a" value="John"> John<br>
+		  <input type="submit" value="Submit">
+			</form>
 
     </body>
 </html>

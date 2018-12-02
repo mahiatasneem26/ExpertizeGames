@@ -10,11 +10,25 @@
 
     <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
 
-    <script defer src="main.js"></script>
     <script defer src="app.js"></script>
 
+    <script>
+		// Initialize Firebase
+		var config = {
+		  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+		  authDomain: "expertize-games.firebaseapp.com",
+		  databaseURL: "https://expertize-games.firebaseio.com",
+		  projectId: "expertize-games",
+		  storageBucket: "expertize-games.appspot.com",
+		  messagingSenderId: "839552852802"
+		};
+		firebase.initializeApp(config);
+		</script>
+
+		<script type="text/javascript" src='main.js'></script>
+
   </head>
-  
+
   <!-- <body onload="GetChallenge()"> -->
   <body>
 	  <table id="QuestionsTable"></table>
@@ -92,18 +106,6 @@
 	    		</div>
 	  		</div>
 	  	</div>
-      <script>
-          // Initialize Firebase
-          var config = {
-            apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
-            authDomain: "expertize-games.firebaseapp.com",
-            databaseURL: "https://expertize-games.firebaseio.com",
-            projectId: "expertize-games",
-            storageBucket: "expertize-games.appspot.com",
-            messagingSenderId: "839552852802"
-          };
-          firebase.initializeApp(config);
-      </script>
 	  <script type="text/javascript" src='main.js'></script>
   </body>
 </html>
