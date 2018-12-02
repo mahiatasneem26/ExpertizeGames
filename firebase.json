@@ -10,35 +10,34 @@
       "**/node_modules/**"
     ],
     "rewrites": [
-		{
-			"source": "/ShowPage",
-			"destination": "/ShowPage.html"
-		},
-		{
-			"source": "/ChallengeScreen",
-			"destination": "/ChallengeScreen.html"
-		},
-		{
-			"source": "/CreateChallenge",
-			"destination": "/CreateChallenge.html"
-		},
-        {
-          "source": "/RomanceShows",
-          "destination": "/RomanceShows.html"
-        },
-        {
-          "source": "/ThrillerShows",
-          "destination": "/ThrillerShows.html"
-        },
-        {
-          "source": "/ComedyShows",
-          "destination": "/ComedyShows.html"
-        },
+      {
+        "source": "/ShowPage",
+        "destination": "/ShowPage.html"
+      },
+      {
+        "source": "/ChallengeScreen",
+        "destination": "/ChallengeScreen.html"
+      },
+      {
+        "source": "/CreateChallenge",
+        "destination": "/CreateChallenge.html"
+      },
+      {
+        "source": "/RomanceShows",
+        "destination": "/RomanceShows.html"
+      },
+      {
+        "source": "/ThrillerShows",
+        "destination": "/ThrillerShows.html"
+      },
+      {
+        "source": "/ComedyShows",
+        "destination": "/ComedyShows.html"
+      },
       {
         "source": "**",
         "destination": "/homepage.html"
       }
-	  
     ]
   }
 }
