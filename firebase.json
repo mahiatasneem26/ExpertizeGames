@@ -10,6 +10,18 @@
       "**/node_modules/**"
     ],
     "rewrites": [
+		{
+			"source": "/ShowPage",
+			"destination": "/ShowPage.html"
+		},
+		{
+			"source": "/ChallengeScreen",
+			"destination": "/ChallengeScreen.html"
+		},
+		{
+			"source": "/CreateChallenge",
+			"destination": "/CreateChallenge.html"
+		},
         {
           "source": "/RomanceShows",
           "destination": "/RomanceShows.html"

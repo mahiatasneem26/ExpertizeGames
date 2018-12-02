@@ -1,3 +1,15 @@
+
+  // Initialize Firebase
+var config = {
+    apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+    authDomain: "expertize-games.firebaseapp.com",
+    databaseURL: "https://expertize-games.firebaseio.com",
+    projectId: "expertize-games",
+    storageBucket: "expertize-games.appspot.com",
+    messagingSenderId: "839552852802"
+};
+firebase.initializeApp(config);
+
 var provider = new firebase.auth.GoogleAuthProvider();
 function loginFunction(){
 	console.log(provider);
@@ -20,17 +32,17 @@ function loginFunction(){
 	  // ...
 	});
 }
-$(document).ready(function(){
- $('.header').height($(window).height());
-})
+// $(document).ready(function(){
+//  $('.header').height($(window).height());
+// })
 
 /*Scroll effect*/
-$(".navbar a").click(function(){
-  $("body,html").animate({
-   scrollTop:$("#" + $(this).data('value')).offset().top
-  },1000)
-  
-})
+// $(".navbar a").click(function(){
+//   $("body,html").animate({
+//    scrollTop:$("#" + $(this).data('value')).offset().top
+//   },1000)
+//
+// })
  
 function ReadFromDatabase(){
  	var userID = firebase.auth().currentUser.uid;
@@ -67,12 +79,35 @@ function GetChallenge(){
  	firebase.database().ref('Arrow Quiz 1/Questions/' + newQuestionKey).set("Olicity");
  }
  
- var field = 1;
- function add_fields() {
-     field++;
-     var objTo = document.getElementById('room_fileds')
-     var divtest = document.createElement("div");
-     divtest.innerHTML = '<div class="label">Room ' + field +':</div><div class="content"><span>Width: <input type="text" style="width:48px;" name="width[]" value="" /><small>(ft)</small> X</span><span>Length: <input type="text" style="width:48px;" namae="length[]" value="" /><small>(ft)</small></span></div>';
-
-     objTo.appendChild(divtest)
- }
+ // function addElement(parentId, elementTag, elementId, html) {
+ //     // Adds an element to the document
+ //     var p = document.getElementById(parentId);
+ //     var newElement = document.createElement(elementTag);
+ //     newElement.setAttribute('id', elementId);
+ //     newElement.innerHTML = html;
+ //     p.appendChild(newElement);
+ // }
+ //
+ // var newField = 1;
+ // function add_question() {
+ // 	 var el = document.createElement('div');
+ // 	 newField ++;
+ // 	 var html = ''
+ // 	 document.getElementById('container').appendChild(el);
+ // }
+ //
+ // function addFile() {
+ //     fileId++; // increment fileId to get a unique ID for the new element
+ //     var html = '<div class = "newField border" id="newField"> ' +
+ //                '<a href="" onclick="javascript:removeElement('file-' + fileId + ''); return false;">Remove</a>';
+ //     addElement('files', 'p', 'file-' + fileId, html);
+ // }
+ 
+ $(document).ready(function() {
+ 	$('#addAnother').click(function(){
+ 		var newDiv = $('<div class = "newField border" id="newField"><form><div class="col-lg-8"><label for="question"> Question</label><input type="text" class="form-control" id="question" placeholder="What is the name of the lead character? "></div><div class="col-lg-8"><label for="answer"> Answer</label><input type="text" class="form-control" id="answer" placeholder="Michael Scott"></div><div class="col-lg-8">
+			  	      	 	<label for="hint"> Hint</label><input type="text" class="form-control" id="hint"></div></form></div>');
+   //newDiv.style.background = "#000";
+   		$('createTrivia').append(newDiv);
+ 	});
+ });})
