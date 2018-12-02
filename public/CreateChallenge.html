@@ -13,7 +13,7 @@
 <body>
   <!-- navbar -->  
    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">  
-		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Home</button>
+		<a href="/homepage" class = "btn btn-outline-success my-2 my-sm-0" role = "button">Home</a>
   	  	<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
    		 	<span class="navbar-toggler-icon"></span>
@@ -42,32 +42,45 @@
 	     	   	 		<input type="text" class="form-control" id="showName" placeholder="The Office">
 	    	  		</div>
 	  	  	  </div>
-	  	  	  <div class="form-group">
-	    	 		<label for="question"> Question</label>
-	    	 		<input type="text" class="form-control" id="question" placeholder="What's the name of the lead character? ">
-	  	  	  </div>
-	  	  	  <div class="form-group">
-	    	  		<label for="answer"> Answer</label>
-	    	  		<input type="text" class="form-control" id="answer" placeholder="Michael Scott">
-	      	  </div>
-	 	  	  <div class="form-row">
-	      	 	 <div class="form-group col-md-6">
-	      	 	 	<label for="hint"> Hint</label>
-	     	 	 	<input type="text" class="form-control" id="hint">
-	      	  	</div>
-			</div>
-		   </form>
+		  </form>
+		  <div class = "newField border" id="newField">
+			  	<form>
+					
+			   	    <div class="col-lg-8">
+			  	    	 	<label for="question"> Question</label>
+			  	    	 	<input type="text" class="form-control" id="question" placeholder="What's the name of the lead character? ">
+			  	  	</div>
+			  	  	<div class="col-lg-8">
+			  	    	  	<label for="answer"> Answer</label>
+			  	    	  	<input type="text" class="form-control" id="answer" placeholder="Michael Scott">
+			  	    </div>
+			  	 	<div class="col-lg-8">
+			  	      	 	<label for="hint"> Hint</label>
+			  	     	 	<input type="text" class="form-control" id="hint">
+			  		</div>
+			 	</form>
+		  </div>
+		  
 		   <div class="buttons" id = "buttons">
 		  	<div class="row">
 		    	<div class="col-sm-2">
 		      	  <button type="submit" class="btn btn-success">Submit</button>
 		    	</div>
 		    	<div class="col-sm-2">
-		      	  <button type="submit" class="btn btn-success">Add another</button>
+		      	  <button id="addAnother" type="submit" class="btn btn-success" href = "#" >Add another</button>
 		    	</div>
 		 	</div>
 		   </div>
 		</div >
 	</div>
+	<!-- <script>
+	    $(document).ready(function() {
+	    	$('#addAnother').click(function(){
+	    		var newDiv = $('<div class = "newField border" id="newField"><form><div class="col-lg-8"><label for="question"> Question</label><input type="text" class="form-control" id="question" placeholder="What is the name of the lead character? "></div><div class="col-lg-8"><label for="answer"> Answer</label><input type="text" class="form-control" id="answer" placeholder="Michael Scott"></div><div class="col-lg-8"><label for="hint"> Hint</label><input type="text" class="form-control" id="hint"></div></form></div>');
+	      //newDiv.style.background = "#000";
+	      		$('createTrivia').append(newDiv);
+	    	});
+	    });})
+	</script> -->
 </body>
 </html>
