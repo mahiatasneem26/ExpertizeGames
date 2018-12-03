@@ -1,38 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="main.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Thriller shows</title>
 
+	<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+
+	<script defer src="app.js"></script>
+
+	<script>
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+		authDomain: "expertize-games.firebaseapp.com",
+		databaseURL: "https://expertize-games.firebaseio.com",
+		projectId: "expertize-games",
+		storageBucket: "expertize-games.appspot.com",
+		messagingSenderId: "839552852802"
+	};
+	firebase.initializeApp(config);
+	</script>
+
+	<script type="text/javascript" src='main.js'></script>
+
 </head>
 
 <body>
-  <!-- navbar -->  
-   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">  
+  <!-- navbar -->
+   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
 		<a href="/homepage" class = "btn btn-outline-success my-2 my-sm-0" role = "button">Home</a>
   	  	<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
    		 	<span class="navbar-toggler-icon"></span>
   		</button> -->
-	</nav> 
+	</nav>
 	<div class="CreateChallenge" id = "CreateChallenge">
 		<!--header -->
 	 	<header class="header">
 		 	<div class="container">
 		 		<div class="description ">
 		    		<h1 class = "text-dark" text-dark >
-						Create your own challenge here:  
-					</h1>  
+						Create your own challenge here:
+					</h1>
 		   	 	</div>
-		   </div>	  
+		   </div>
 	  	</header>
 		<div class="createTrivia">
 			<form>
-	  	  	  <div class="form-row">	  
+	  	  	  <div class="form-row">
 			  		<div class="form-group col-md-6">
 	     				<label for="Genre">   Genre</label>
 	     	    		<input type="text" class="form-control" id="Genre" placeholder="Comedy">
@@ -45,7 +64,7 @@
 		  </form>
 		  <div class = "newField border" id="newField">
 			  	<form>
-					
+
 			   	    <div class="col-lg-8">
 			  	    	 	<label for="question"> Question</label>
 			  	    	 	<input type="text" class="form-control" id="question" placeholder="What's the name of the lead character? ">
@@ -60,11 +79,11 @@
 			  		</div>
 			 	</form>
 		  </div>
-		  
+
 		   <div class="buttons" id = "buttons">
 		  	<div class="row">
 		    	<div class="col-sm-2">
-		      	  <button type="submit" class="btn btn-success">Submit</button>
+		      	  <button type="submit" onclick="NewQuestion()" class="btn btn-success">Submit</button>
 		    	</div>
 		    	<div class="col-sm-2">
 		      	  <button id="addAnother" type="submit" class="btn btn-success" href = "#" >Add another</button>
@@ -73,14 +92,5 @@
 		   </div>
 		</div >
 	</div>
-	<!-- <script>
-	    $(document).ready(function() {
-	    	$('#addAnother').click(function(){
-	    		var newDiv = $('<div class = "newField border" id="newField"><form><div class="col-lg-8"><label for="question"> Question</label><input type="text" class="form-control" id="question" placeholder="What is the name of the lead character? "></div><div class="col-lg-8"><label for="answer"> Answer</label><input type="text" class="form-control" id="answer" placeholder="Michael Scott"></div><div class="col-lg-8"><label for="hint"> Hint</label><input type="text" class="form-control" id="hint"></div></form></div>');
-	      //newDiv.style.background = "#000";
-	      		$('createTrivia').append(newDiv);
-	    	});
-	    });})
-	</script> -->
 </body>
 </html>
