@@ -1,92 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 	
 		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="main.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Thriller shows</title>
-
+	<meta charset="utf-8">
 	<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
-
+	<!-- update the version number as needed -->
+	<script defer src="/__/firebase/5.5.4/firebase-app.js"></script>
+	 <!-- include only the Firebase features as you need -->
+	<script defer src="/__/firebase/5.5.4/firebase-auth.js"></script>
+	<script defer src="/__/firebase/5.5.4/firebase-database.js"></script>
+	<script defer src="/__/firebase/5.5.4/firebase-messaging.js"></script>
+	<script defer src="/__/firebase/5.5.4/firebase-storage.js"></script>
+	<!-- initialize the SDK after all desired features are loaded -->
+	<script defer src="/__/firebase/init.js"></script>
 	<script defer src="app.js"></script>
-
 	<script>
 	// Initialize Firebase
-	var config = {
-		apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
-		authDomain: "expertize-games.firebaseapp.com",
-		databaseURL: "https://expertize-games.firebaseio.com",
-		projectId: "expertize-games",
-		storageBucket: "expertize-games.appspot.com",
-		messagingSenderId: "839552852802"
-	};
-	firebase.initializeApp(config);
+		var config = {
+	  	  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+	  	  authDomain: "expertize-games.firebaseapp.com",
+	  	  databaseURL: "https://expertize-games.firebaseio.com",
+	  	  projectId: "expertize-games",
+	  	  storageBucket: "expertize-games.appspot.com",
+	  	  messagingSenderId: "839552852802"
+		};
+		firebase.initializeApp(config);
 	</script>
-
-	<script type="text/javascript" src='main.js'></script>
 
 </head>
 
 <body>
-  <!-- navbar -->
-   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <!-- navbar -->  
+   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">  
 		<a href="/homepage" class = "btn btn-outline-success my-2 my-sm-0" role = "button">Home</a>
-  	  	<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-   		 	<span class="navbar-toggler-icon"></span>
-  		</button> -->
-	</nav>
+	</nav> 
 	<div class="CreateChallenge" id = "CreateChallenge">
 		<!--header -->
 	 	<header class="header">
 		 	<div class="container">
 		 		<div class="description ">
 		    		<h1 class = "text-dark" text-dark >
-						Create your own challenge here:
-					</h1>
+						Create your own challenge here:  
+					</h1>  
 		   	 	</div>
-		   </div>
+		   </div>	  
 	  	</header>
 		<div class="createTrivia">
 			<form>
-	  	  	  <div class="form-row">
-			  		<div class="form-group col-md-6">
+	  	  	  <div class="form-row">	  
+			  		<div class="form-group col-md-4"> <!-- TODO: Change the size of the columns as necessary. You can look up bootstrap columns. It's very easy to implement and there are a lot of options. Genre, Name of the Show and Set should be drop down menus with options from our database -->
 	     				<label for="Genre">   Genre</label>
-	     	    		<input type="text" class="form-control" id="Genre" placeholder="Comedy">
+	     	    		<input type="text" class="form-control" id="genreInput" placeholder="Comedy">
 	      	  		</div>
-	    	 		<div class="form-group col-md-6">
+	    	 		<div class="form-group col-md-4">
 	      				<label for="showName">   Name of the show</label>
-	     	   	 		<input type="text" class="form-control" id="showName" placeholder="The Office">
+	     	   	 		<input type="text" class="form-control" id="nameInput" placeholder="The Office">
+	    	  		</div>
+	    	 		<div class="form-group col-md-4">
+	      				<label for="showName">  Set </label>
+	     	   	 		<input type="text" class="form-control" id="setInput" placeholder="Set One/Set Two">
 	    	  		</div>
 	  	  	  </div>
 		  </form>
-		  <div class = "newField border" id="newField">
-			  	<form>
-
-			   	    <div class="col-lg-8">
-			  	    	 	<label for="question"> Question</label>
-			  	    	 	<input type="text" class="form-control" id="question" placeholder="What's the name of the lead character? ">
+		  <form class = "newField col-lg-8" id="newEntry">
+			  <form id="newEntryForm">
+			   	    <div class="col-md-10" id="questionInputDiv">
+			  	    	 	<label for="questionInput" id="questionInputLabel"> Question</label>
+			  	    	 	<input type="text" class="form-control" id="questionInput" placeholder="What's the name of the lead character? ">
 			  	  	</div>
-			  	  	<div class="col-lg-8">
-			  	    	  	<label for="answer"> Answer</label>
-			  	    	  	<input type="text" class="form-control" id="answer" placeholder="Michael Scott">
+			  	  	<div class="col-md-10" id= "answerInputDiv">
+			  	    	  	<label for="answerInput" id="answerInputLabel"> Answer</label>
+			  	    	  	<input type="text" class="form-control" id="answerInput" placeholder="Michael Scott">
 			  	    </div>
-			  	 	<div class="col-lg-8">
-			  	      	 	<label for="hint"> Hint</label>
-			  	     	 	<input type="text" class="form-control" id="hint">
+			  	 	<div class="col-md-10" id ="hintInputDIv">
+			  	      	 	<label for="hintInput" id="hintInputLabel"> Hint</label>
+			  	     	 	<input type="text" class="form-control" id="hintInput" placeholder="Weird sense of humor">
 			  		</div>
-			 	</form>
-		  </div>
-
+			</form>
+		  <!-- </div> -->
+		  
 		   <div class="buttons" id = "buttons">
 		  	<div class="row">
 		    	<div class="col-sm-2">
-		      	  <button type="submit" onclick="NewQuestion()" class="btn btn-success">Submit</button>
+		      	  <button onclick="NewQuestion()" type="submit" class="btn btn-success">Submit</button>
 		    	</div>
 		    	<div class="col-sm-2">
-		      	  <button id="addAnother" type="submit" class="btn btn-success" href = "#" >Add another</button>
+		      	  <button onClick="AddDiv()" class="btn btn-success">Add another</button>
 		    	</div>
 		 	</div>
 		   </div>
