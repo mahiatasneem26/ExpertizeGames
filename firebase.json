@@ -23,6 +23,10 @@
         "destination": "/CreateChallenge.html"
       },
       {
+      "source": "/TakeChallenge",
+      "destination": "/TakeChallenge.html"
+      },
+      {
         "source": "/RomanceShows",
         "destination": "/RomanceShows.html"
       },
