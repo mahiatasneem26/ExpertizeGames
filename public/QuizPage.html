@@ -6,7 +6,22 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Game of Thrones</title>
+    <title>Quiz Page</title> 
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+
+    <script defer src="app.js"></script>
+	
+     <script defer src="/__/firebase/5.5.4/firebase-app.js"></script>
+     <!-- include only the Firebase features as you need -->
+     <script defer src="/__/firebase/5.5.4/firebase-auth.js"></script>
+     <script defer src="/__/firebase/5.5.4/firebase-database.js"></script>
+     <script defer src="/__/firebase/5.5.4/firebase-messaging.js"></script>
+     <script defer src="/__/firebase/5.5.4/firebase-storage.js"></script>
+     <!-- initialize the SDK after all desired features are loaded -->
+     <script defer src="/__/firebase/init.js"></script>
+ 	 <!-- <script defer src="public/app.js"></script> -->
+	 
 
     <style type="text/css">
 
@@ -58,29 +73,19 @@
 
     </style>
 
-    <meta charset="utf-8">
-
-		<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
-
-    <script defer src="app.js"></script>
-
-    <script>
-		// Initialize Firebase
-		var config = {
-		  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
-		  authDomain: "expertize-games.firebaseapp.com",
-		  databaseURL: "https://expertize-games.firebaseio.com",
-		  projectId: "expertize-games",
-		  storageBucket: "expertize-games.appspot.com",
-		  messagingSenderId: "839552852802"
-		};
-		firebase.initializeApp(config);
-		</script>
-
-		<script type="text/javascript" src='main.js'></script>
 
 </head>
-    <body style="background-color:gray;" onload="GetChallenge()">
+
+
+<body "background-color:gray;" onload="GetQuestions()">
+  	  <table id="QuestionsTable"></table>
+  	  <table id="AnswersTable"></table>'
+  	  <table id="HintsTable"></table>
+  	  <!-- <table id="QuestionsTable"></table> -->
+  	  <button onclick="GetQuestions()">Get Questions</button>
+	
+  	 <button onclick="GetAnswers()">Get Answers</button>
+  	 <button onclick="GetHints()">Get Hints</button>
 	    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
 	 		<a href="/homepage" class = "btn btn-outline-success my-2 my-sm-0" role = "button">Home</a>
 	   	  	<div class="collapse navbar-collapse " id="navbarSupportedContent">
@@ -94,10 +99,9 @@
 	 	</nav>
     	  <table id="QuestionsTable">
     	  </table>
-    	  <!-- <button onclick="NewQuestion()">NewQuestion</button> -->
       <header class="header">
         <div class = "row">
-                  <h1 class="text-white text-center">GAME OF THRONES</h1>
+                  <h1 class="text-white text-center" id= "QuizPageHeader">GAME OF THRONES</h1>
         </div>
       </header>
 
@@ -108,6 +112,18 @@
 			<input type="radio" name="q1a" value="John"> John<br>
 		  <input type="submit" value="Submit">
 			</form>
-
+			
+     <script>
+		// Initialize Firebase
+		var config = {
+		  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+		  authDomain: "expertize-games.firebaseapp.com",
+		  databaseURL: "https://expertize-games.firebaseio.com",
+		  projectId: "expertize-games",
+		  storageBucket: "expertize-games.appspot.com",
+		  messagingSenderId: "839552852802"
+		};
+		firebase.initializeApp(config);
+	</script>
     </body>
 </html>
