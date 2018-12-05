@@ -310,3 +310,33 @@ function AddDiv(){
 // 			i++;
 // 		});
 // }
+
+function TakeChallenge(){
+	/*var userID = firebase.auth().currentUser.uid;
+	var database = firebase.database();
+	firebase.database().ref('users').once('value').then(function(snapshot){
+		console.log(snapshot.val());
+		});*/
+		var urlParams = new URLSearchParams(location.search); console.log("urlParams.get(\"genre\"):", urlParams.get("genre"));
+		console.log("urlParams.get(\"tvshow\"):", urlParams.get("tvshow"));
+		console.log("urlParams.get(\"set\"):", urlParams.get("set"));
+		var database = firebase.database();
+	firebase.database().ref('Challenges').on('value',function(snapshot){
+		var webUrl = snapshot.val()[urlParams.get("genre")][urlParams.get("tvshow")][urlParams.get("set")]
+		console.log(webUrl);
+		console.log(snapshot.val());
+		var table = document.getElementById("listOfQuizzes");
+		//var row = table.insertRow(0);
+		//var cell = row.insertCell(0);
+		//cell.innerHTML = "ARROW QUIZ!"
+		var i = 0;
+		for(var key in snapshot.val()){
+			console.log(key);
+			/*if(QuestionDictionary.hasOwnProperty(key)){
+				var row = table.insertRow(i);
+				var cell = row.insertCell();
+				cell.innerHTML = QuestionDictionary[key];*/
+			}
+			i++;
+		});
+	}
