@@ -1,58 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 	
-		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="main.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Thriller shows</title>
-	<meta charset="utf-8">
-	<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
-	<!-- update the version number as needed -->
-	<script defer src="/__/firebase/5.5.4/firebase-app.js"></script>
-	 <!-- include only the Firebase features as you need -->
-	<script defer src="/__/firebase/5.5.4/firebase-auth.js"></script>
-	<script defer src="/__/firebase/5.5.4/firebase-database.js"></script>
-	<script defer src="/__/firebase/5.5.4/firebase-messaging.js"></script>
-	<script defer src="/__/firebase/5.5.4/firebase-storage.js"></script>
-	<!-- initialize the SDK after all desired features are loaded -->
-	<script defer src="/__/firebase/init.js"></script>
-	<script defer src="app.js"></script>
-	<script>
-	// Initialize Firebase
-		var config = {
-	  	  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
-	  	  authDomain: "expertize-games.firebaseapp.com",
-	  	  databaseURL: "https://expertize-games.firebaseio.com",
-	  	  projectId: "expertize-games",
-	  	  storageBucket: "expertize-games.appspot.com",
-	  	  messagingSenderId: "839552852802"
-		};
-		firebase.initializeApp(config);
-	</script>
+		<style>
+			body {
+				margin: 0;
+				font-size: 28px;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			table{
+				color: #ddd;
+			}
+
+			.Hint{
+				display: none;
+			}
+
+			.header {
+				background-color: #f1f1f1;
+				padding: 10px;
+				text-align: center;
+			}
+
+			#navbar {
+				overflow: hidden;
+				background-color: black;
+				border-bottom: ridge;
+				border-width:10px;
+				border-color: #785FF7;
+			}
+
+			#navbar a {
+				float: left;
+				display: block;
+				color: #f2f2f2;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				font-size: 17px;
+			}
+
+			#navbar a:hover {
+				background-color: #ddd;
+				color: black;
+			}
+
+			#navbar a.active {
+				background-color: #785FF7;
+				color: white;
+			}
+
+			.sticky {
+				position: fixed;
+				top: 0;
+				width: 100%;
+			}
+
+			.sticky + .content {
+				padding-top: 0px;
+			}
+
+			@font-face { font-family: game_over_cre1; src: url('gameovercre1.ttf'); }
+			@font-face { font-family: choose; src: url('Air Americana.ttf'); }
+
+	 </style>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+	 <script defer src="app.js"></script>
+	 <script>
+	 	// Initialize Firebase
+	 		var config = {
+	 	  	  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+	 	  	  authDomain: "expertize-games.firebaseapp.com",
+	 	  	  databaseURL: "https://expertize-games.firebaseio.com",
+	 	  	  projectId: "expertize-games",
+	 	  	  storageBucket: "expertize-games.appspot.com",
+	 	  	  messagingSenderId: "839552852802"
+	 		};
+	 		firebase.initializeApp(config);
+	 	</script>
 
 </head>
 
 <body>
-  <!-- navbar -->  
-   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">  
-		<a href="/homepage" class = "btn btn-outline-success my-2 my-sm-0" role = "button">Home</a>
-	</nav> 
+  <!-- navbar -->
+	<div id="navbar">
+	 <img src="images/Expertize_Logo.png" width="646.866" height="350.38575" style="padding-left:300px;margin-bottom:-50px;margin-top:-60px;">
+	 <a class="active" href="/homepage">Home</a>
+	 <a href="CreateChallenge.html">Create</a>
+	</div>
+
 	<div class="CreateChallenge" id = "CreateChallenge">
 		<!--header -->
 	 	<header class="header">
 		 	<div class="container">
 		 		<div class="description ">
 		    		<h1 class = "text-dark" text-dark >
-						Create your own challenge here:  
-					</h1>  
+						Create your own challenge here:
+					</h1>
 		   	 	</div>
-		   </div>	  
+		   </div>
 	  	</header>
 		<div class="createTrivia">
 			<form>
-	  	  	  <div class="form-row">	  
+	  	  	  <div class="form-row">
 			  		<div class="form-group col-md-4"> <!-- TODO: Change the size of the columns as necessary. You can look up bootstrap columns. It's very easy to implement and there are a lot of options. Genre, Name of the Show and Set should be drop down menus with options from our database -->
 	     				<label for="Genre">   Genre</label>
 	     	    		<input type="text" class="form-control" id="genreInput" placeholder="Comedy">
@@ -83,7 +135,7 @@
 			  		</div>
 			</form>
 		  <!-- </div> -->
-		  
+
 		   <div class="buttons" id = "buttons">
 		  	<div class="row">
 		    	<div class="col-sm-2">

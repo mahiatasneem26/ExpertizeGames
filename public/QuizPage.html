@@ -8,6 +8,10 @@
 				font-family: Arial, Helvetica, sans-serif;
 			}
 
+			table{
+				color: #ddd;
+			}
+
 			.Hint{
 				display: none;
 			}
@@ -78,21 +82,17 @@
 	 	</script>
 </head>
 
-<body "background-color:gray;" onload="GetQuestions()">
+<body style="background-color:black;" onload="GetQuestions()">
 		 <div id="navbar">
 		 <img src="images/Expertize_Logo.png" width="646.866" height="350.38575" style="padding-left:300px;margin-bottom:-50px;margin-top:-60px;">
 		 <a class="active" href="/homepage">Home</a>
 		 <a href="CreateChallenge.html">Create</a>
-		 <a target="_blank" onclick="loginFunction()">Login</a>
 		</div>
 
-		<table id="QuestionsTable"></table>
-		<table id="AnswersTable"></table>'
-		<table id="HintsTable"></table>
+		<p><table id="QuestionsTable"></table></p>
+		<p><table style="padding-bottom:30px;" id="AnswersTable"></table></p>
+		<p  style="margin-bottom:10px;"><table id="HintsTable"></table></p>
 		<!-- <table id="QuestionsTable"></table> -->
-	 <button onclick="GetQuestions()">Get Questions</button>
-	 <button onclick="GetAnswers()">Get Answers</button>
-	 <button onclick="GetHints()">Get Hints</button>
 	 <button onclick="GetScore()">Submit!</button>
     	  <table id="QuestionsTable">
     	  </table>

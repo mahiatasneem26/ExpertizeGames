@@ -151,8 +151,7 @@ function GetQuestions(){
 				}
 				var Hint = table.insertRow(-1);
 				var HintVal= Hint.insertCell();
-				HintVal.innerHTML = "<button onclick=\"ShowHint('"+QuestionID+"')\">Show Hint</button><div style=\"display:none\" id=\""+QuestionID+"\">This is my DIV element.</div>"
-
+				HintVal.innerHTML = "<button onclick=\"ShowHint('"+QuestionID+"')\">Show Hint</button><div style=\"display:none\" id=\""+QuestionID+"\">"+HintsDictionary[QuestionID]+"</div>"
 
 				for (var answer in AnswersDictionary[QuestionID]){
 					if (answer!="CA"){
@@ -206,35 +205,27 @@ function GetAnswers(){
 }
 
 function GetScore(){
-	//var userID = firebase.auth().currentUser.uid;
-	console.log("on getAnswers clicked")
 	var database = firebase.database();
 	var urlParams = new URLSearchParams(location.search);
-	console.log("urlParams.get(\"name\"):", urlParams.get("name"));
-	console.log("urlParams.get(\"genre\"):", urlParams.get("genre"));
-	console.log("urlParams.get(\"set\"):", urlParams.get("set"));
 	ref = 'Challenges/' + urlParams.get("genre") + '/' +urlParams.get("name") + '/' + urlParams.get("set")
 	console.log(ref)
 	firebase.database().ref(ref).on('value',function(snapshot){
-
-		console.log(snapshot.val());
-		var AnswerDictionary = snapshot.val()["Answers"];
+		var SAnswerDictionary = snapshot.val()["Answers"];
 		var table = document.getElementById("AnswersTable");
 		var row = table.insertRow(0);
 		var cell = row.insertCell(0);
-		// cell.innerHTML = "ARROW QUIZ!"
 		var score = 0;
-		for(var key in AnswerDictionary){
-			if(AnswerDictionary.hasOwnProperty(key)){
+		for(var key in SAnswerDictionary){
+			if(SAnswerDictionary.hasOwnProperty(key)){
 				var row = table.insertRow(-1);
 				var cell = row.insertCell();
 				selected=document.querySelector('input[name='+key+']:checked').value;
-				if (selected==AnswerDictionary[key]['CA']){
+				if (selected==SAnswerDictionary[key]['CA']){
 					score++;
 				}
-				console.log(score);
 			}
 		}
+		cell.innerHTML = score;
 		});
 }
 

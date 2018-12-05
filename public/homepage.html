@@ -99,15 +99,41 @@
 
 		<script type="text/javascript" src='main.js'></script>
 
+		<div id="fb-root"></div>
+		<script>
+
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '321520721906986',
+		      cookie     : true,
+		      xfbml      : true,
+		      version    : 'v3.2'
+		    });
+
+		    FB.AppEvents.logPageView();
+
+		  };
+
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "https://connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+
   </head>
 
   <body style="background-color:black;">
 
       <div id="navbar">
-        <img src="images/Expertize_Logo.png" width="646.866" height="350.38575" style="padding-left:300px;margin-bottom:-50px;margin-top:-60px;">
+        <img src="images/Expertize_Logo.png" width="646.866" height="350.38575" style="position:relative;margin-left:0px;margin-bottom:-50px;margin-top:-60px;">
         <a class="active" href="/homepage">Home</a>
         <a href="CreateChallenge.html">Create</a>
         <a target="_blank" onclick="loginFunction()">Login</a>
+        <a target="_blank" onclick="twitterLogin()">Twitter Login</a>
+        <a <div class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="true" data-auto-logout-link="false" data-use-continue-as="false">Facebook</div></a>
       </div>
 
 <p style="padding-left:40px;margin-top:70px;margin-bottom:-20px;color:#ddd;font-size:70px;text-shadow:5px 5px 3px #785FF7;font-family:game_over_cre1">Genres</p>
