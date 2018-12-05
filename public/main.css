@@ -16,22 +16,21 @@ body {
 }*/
 
 
-.navbar-dark .navbar-nav .nav-link:hover { 
+.navbar-dark .navbar-nav .nav-link:hover {
 	/*background: #fff;*/
-	color: #fff; 
+	color: #fff;
 	cursor: pointer;
-	
+
 }
 
 .navbar-nav >li{
 	padding-left: 5px;
 	padding-right: 5px;
 }
-.navbar-collapse{ 
-	justify-content: 
+.navbar-collapse{
+	justify-content:
 	flex-end;
 }
-
 /*header style*/
 .header{
 	position: relative;
@@ -120,13 +119,13 @@ body {
 	background-color: white;
  	margin: auto;
 	padding: 1em;
- 	position: relative; 
+ 	position: relative;
 	overflow: hidden;
 }
 .genres h1{
  	color:#6a5acd;
  	margin: 0;
-	margin-block-start: 1em; 
+	margin-block-start: 1em;
 }
 
 .col {
@@ -141,7 +140,7 @@ body {
 	padding-right: 6px;
 	padding-left : 3px;
 	margin-top: 1em;
-	
+
 }
 
 /*Romance show page styles*/
@@ -149,10 +148,10 @@ body {
 	background-image: linear-gradient(to bottom right, red, blue);
  	margin: 0;
 	padding: 1em;
- 	position: relative; 
+ 	position: relative;
 	max-height: 100%;
 	overflow:hidden;
-	
+
 }
 .text-center {
 	margin-block-start: 4em;
@@ -172,7 +171,7 @@ body {
 	background-image: linear-gradient(to bottom right, yellow, blue);
  	margin: auto;
 	padding: 1em;
- 	position: relative; 
+ 	position: relative;
 }
 .text-center {
 	margin-block-start: 4em;
@@ -191,7 +190,7 @@ body {
 	background-image: linear-gradient(to bottom right, gray, black, gray);
  	margin: auto;
 	padding: 1em;
- 	position: relative; 
+ 	position: relative;
 }
 .text-center {
 	margin-block-start: 4em;
@@ -213,8 +212,8 @@ body {
 	padding-bottom:15em;
 	/*background-image: linear-gradient(to bottom right, white, white);*/
 	background-color: LightSkyBlue;
-	position: relative; 
-	
+	position: relative;
+
 }
 
 .description {
@@ -255,7 +254,7 @@ body {
 .newDiv .col-lg-8 {
 	padding-top: 5px;
 	padding-left: 150px;
-	max-width: 80%;	
+	max-width: 80%;
 }
 
 .newEntryForm {
@@ -275,7 +274,7 @@ body {
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    transition: border-color .15s 
+    transition: border-color .15s
 }
 
 

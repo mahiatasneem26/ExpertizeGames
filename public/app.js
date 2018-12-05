@@ -93,78 +93,100 @@ function GetChallenges(){
 	var quizBoxDiv = document.getElementById("quizBox")
 	var boxDiv = document.createElement("div")
 	var database = firebase.database();
-	
-	var urlParams = new URLSearchParams(location.search); 
+
+	var urlParams = new URLSearchParams(location.search);
 	console.log("urlParams.get(\"name\"):", urlParams.get("name"));
 	console.log("urlParams.get(\"genre\"):", urlParams.get("genre"));
-	ref = 'Challenges/' + urlParams.get("genre") + '/' +urlParams.get("name") 
-	
+	ref = 'Challenges/' + urlParams.get("genre") + '/' +urlParams.get("name")
+
 	var pageTitle = document.getElementById("pageTitle")
 	pageTitle.innerHTML = urlParams.get("name")
-	
+
 	firebase.database().ref(ref).on('value',function(snapshot){
 		console.log(snapshot.val());
 		for(var key in snapshot.val()){
-			
+
 			var a = document.createElement('a');
 			var linkText = document.createTextNode(key);
 			a.title = key;
 			a.href = "QuizPage.html" + "?" + "genre=" + urlParams.get("genre") + "&" + "name=" + urlParams.get("name") + "&" + "set=" + key;
 			a.appendChild(linkText);
-			
+
 			var boxDiv = document.createElement("div")
 			boxDiv.className = "box"
-			
+
 			boxDiv.appendChild(a);
-			
-			quizBoxDiv.appendChild(boxDiv)	
+
+			quizBoxDiv.appendChild(boxDiv)
 		}
 		});
-	
+
 }
 function GetQuestions(){
 	//var userID = firebase.auth().currentUser.uid;
 	console.log("on getQuestions clicked")
 	var database = firebase.database();
-	var urlParams = new URLSearchParams(location.search); 
+	var urlParams = new URLSearchParams(location.search);
 	console.log("urlParams.get(\"name\"):", urlParams.get("name"));
 	console.log("urlParams.get(\"genre\"):", urlParams.get("genre"));
 	console.log("urlParams.get(\"set\"):", urlParams.get("set"));
 	ref = 'Challenges/' + urlParams.get("genre") + '/' +urlParams.get("name") + '/' + urlParams.get("set")
 	console.log(ref)
-	
-	
+
+
 	firebase.database().ref(ref).on('value',function(snapshot){
 		console.log(snapshot.val());
 		var QuestionDictionary = snapshot.val()["Questions"];
+		var AnswersDictionary = snapshot.val()["Answers"];
+		var HintsDictionary = snapshot.val()["Hints"];
 		var table = document.getElementById("QuestionsTable");
 		var row = table.insertRow(0);
 		var cell = row.insertCell(0);
 		// cell.innerHTML = "ARROW QUIZ!"
-		var i = 0;
-		for(var key in QuestionDictionary){
-			if(QuestionDictionary.hasOwnProperty(key)){
-				var row = table.insertRow(i);
+		for(var QuestionID in QuestionDictionary){
+			if(QuestionDictionary.hasOwnProperty(QuestionID)){
+				var row = table.insertRow(-1);
 				var cell = row.insertCell();
-				cell.innerHTML = QuestionDictionary[key];
-			}
-			i++;
+				cell.innerHTML = QuestionDictionary[QuestionID];
+				}
+				var Hint = table.insertRow(-1);
+				var HintVal= Hint.insertCell();
+				HintVal.innerHTML = "<button onclick=\"ShowHint('"+QuestionID+"')\">Show Hint</button><div style=\"display:none\" id=\""+QuestionID+"\">This is my DIV element.</div>"
+
+
+				for (var answer in AnswersDictionary[QuestionID]){
+					if (answer!="CA"){
+						console.log("Answer", AnswersDictionary[QuestionID][answer]);
+						var row = table.insertRow(-1);
+						var cell = row.insertCell();
+						cell.innerHTML = "<input type=\"radio\" name="+QuestionID+" value="+answer+">" + AnswersDictionary[QuestionID][answer];
+					}
+				}
 		}
 		});
+}
+
+function ShowHint(DivID) {
+    var x = document.getElementById(DivID);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }
 
 function GetAnswers(){
 	//var userID = firebase.auth().currentUser.uid;
 	console.log("on getAnswers clicked")
 	var database = firebase.database();
-	var urlParams = new URLSearchParams(location.search); 
+	var urlParams = new URLSearchParams(location.search);
 	console.log("urlParams.get(\"name\"):", urlParams.get("name"));
 	console.log("urlParams.get(\"genre\"):", urlParams.get("genre"));
 	console.log("urlParams.get(\"set\"):", urlParams.get("set"));
 	ref = 'Challenges/' + urlParams.get("genre") + '/' +urlParams.get("name") + '/' + urlParams.get("set")
 	console.log(ref)
 	firebase.database().ref(ref).on('value',function(snapshot){
-		
+
 		console.log(snapshot.val());
 		var AnswerDictionary = snapshot.val()["Answers"];
 		var table = document.getElementById("AnswersTable");
@@ -183,18 +205,51 @@ function GetAnswers(){
 		});
 }
 
-function GetHints(){
+function GetScore(){
 	//var userID = firebase.auth().currentUser.uid;
-	console.log("on getHints clicked")
+	console.log("on getAnswers clicked")
 	var database = firebase.database();
-	var urlParams = new URLSearchParams(location.search); 
+	var urlParams = new URLSearchParams(location.search);
 	console.log("urlParams.get(\"name\"):", urlParams.get("name"));
 	console.log("urlParams.get(\"genre\"):", urlParams.get("genre"));
 	console.log("urlParams.get(\"set\"):", urlParams.get("set"));
 	ref = 'Challenges/' + urlParams.get("genre") + '/' +urlParams.get("name") + '/' + urlParams.get("set")
 	console.log(ref)
 	firebase.database().ref(ref).on('value',function(snapshot){
-		
+
+		console.log(snapshot.val());
+		var AnswerDictionary = snapshot.val()["Answers"];
+		var table = document.getElementById("AnswersTable");
+		var row = table.insertRow(0);
+		var cell = row.insertCell(0);
+		// cell.innerHTML = "ARROW QUIZ!"
+		var score = 0;
+		for(var key in AnswerDictionary){
+			if(AnswerDictionary.hasOwnProperty(key)){
+				var row = table.insertRow(-1);
+				var cell = row.insertCell();
+				selected=document.querySelector('input[name='+key+']:checked').value;
+				if (selected==AnswerDictionary[key]['CA']){
+					score++;
+				}
+				console.log(score);
+			}
+		}
+		});
+}
+
+function GetHints(){
+	//var userID = firebase.auth().currentUser.uid;
+	console.log("on getHints clicked")
+	var database = firebase.database();
+	var urlParams = new URLSearchParams(location.search);
+	console.log("urlParams.get(\"name\"):", urlParams.get("name"));
+	console.log("urlParams.get(\"genre\"):", urlParams.get("genre"));
+	console.log("urlParams.get(\"set\"):", urlParams.get("set"));
+	ref = 'Challenges/' + urlParams.get("genre") + '/' +urlParams.get("name") + '/' + urlParams.get("set")
+	console.log(ref)
+	firebase.database().ref(ref).on('value',function(snapshot){
+
 		console.log(snapshot.val());
 		var HintsDictionary = snapshot.val()["Hints"];
 		var table = document.getElementById("HintsTable");
@@ -215,23 +270,23 @@ function GetHints(){
 
 function NewQuestion(){
 	var database = firebase.database();
-	
+
 	var genreInput = document.getElementById("genreInput")
 	var nameInput = document.getElementById("nameInput")
 	var hintInput = document.getElementById("hintInput")
-	
+
 	ref = "Challenges/" + genreInput.value + "/" + nameInput.value + "/" + setInput.value
 	console.log(ref)
 	console.log(genreInput)
-	
+
 	var quesInput = document.getElementById("questionInput")
 	var answerInput = document.getElementById("answerInput")
 	var hintInput = document.getElementById("hintInput")
-	
+
 	var newEntry = {Question: quesInput.value, Answer: answerInput.value, Hint: hintInput.value}
-	
+
 	console.log(quesInput.value)
-	
+
 	database.ref(ref).set(newEntry)
 	location.reload();
 }
@@ -239,10 +294,10 @@ function NewQuestion(){
 function AddDiv(){
 	var newEntry = document.getElementById("newEntry")
 	var linebreak = document.createElement("br");
-	
+
 	var newDiv = document.createElement('div');
 	newDiv.className = "newDiv"
-	
+
 	var quesDiv = document.createElement('div')
 	var quesLabel = document.createTextNode("Question");
 	var quesInput = document.createElement("INPUT");
@@ -254,8 +309,8 @@ function AddDiv(){
 	quesDiv.appendChild(quesLabel)
 	quesDiv.appendChild(linebreak)
 	quesDiv.appendChild(quesInput)
-	
-	
+
+
 	var ansDiv = document.createElement('div')
 	var ansLabel = document.createTextNode("Answer");
 	var ansInput = document.createElement("INPUT");
@@ -268,8 +323,8 @@ function AddDiv(){
 	ansDiv.appendChild(linebreak)
 	ansDiv.appendChild(linebreak)
 	ansDiv.appendChild(ansInput)
-	
-	
+
+
 	var hintDiv = document.createElement('div')
 	var hintLabel = document.createTextNode("Hint");
 	var hintInput = document.createElement("INPUT");
@@ -281,11 +336,11 @@ function AddDiv(){
 	hintDiv.appendChild(hintLabel)
 	hintDiv.appendChild(linebreak)
 	hintDiv.appendChild(hintInput)
-	
+
 	newDiv.appendChild(quesDiv);
 	newDiv.appendChild(ansDiv);
 	newDiv.appendChild(hintDiv);
-	
+
 	newEntry.appendChild(newDiv);
 }
 

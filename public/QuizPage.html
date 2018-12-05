@@ -1,129 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="main.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quiz Page</title> 
+		<style>
+			body {
+				margin: 0;
+				font-size: 28px;
+				font-family: Arial, Helvetica, sans-serif;
+			}
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+			.Hint{
+				display: none;
+			}
 
-    <script defer src="app.js"></script>
-	
-     <script defer src="/__/firebase/5.5.4/firebase-app.js"></script>
-     <!-- include only the Firebase features as you need -->
-     <script defer src="/__/firebase/5.5.4/firebase-auth.js"></script>
-     <script defer src="/__/firebase/5.5.4/firebase-database.js"></script>
-     <script defer src="/__/firebase/5.5.4/firebase-messaging.js"></script>
-     <script defer src="/__/firebase/5.5.4/firebase-storage.js"></script>
-     <!-- initialize the SDK after all desired features are loaded -->
-     <script defer src="/__/firebase/init.js"></script>
- 	 <!-- <script defer src="public/app.js"></script> -->
-	 
+			.header {
+				background-color: #f1f1f1;
+				padding: 10px;
+				text-align: center;
+			}
 
-    <style type="text/css">
+			#navbar {
+				overflow: hidden;
+				background-color: black;
+				border-bottom: ridge;
+				border-width:10px;
+				border-color: #785FF7;
+			}
 
-      img {
-        display: block;
-        margin-top: -120px;
-        margin-bottom: -50px;
-        margin-left: auto;
-        margin-right: auto;
-      }
+			#navbar a {
+				float: left;
+				display: block;
+				color: #f2f2f2;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				font-size: 17px;
+			}
 
-      body {
-        margin: 40px;
-      }
+			#navbar a:hover {
+				background-color: #ddd;
+				color: black;
+			}
 
-      .wrapper {
-        display: grid;
-        grid-template-rows: 160px 160px;
-        grid-template-columns: 400px 400px;
-        grid-gap: 10px;
-        color: #444;
-		margin-left: 430px;
-      }
+			#navbar a.active {
+				background-color: #785FF7;
+				color: white;
+			}
 
-      .box {
-        background-color: #444;
-        color: #fff;
-        border-radius: 5px;
-        /*   padding: 20px; */
-        font-size: 150%;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+			.sticky {
+				position: fixed;
+				top: 0;
+				width: 100%;
+			}
 
-      .centeredImage {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: image-height/2;
-        margin-left: image-width/2;
-      }
+			.sticky + .content {
+				padding-top: 0px;
+			}
 
-	  .header {
-		  margin-left: 670px;
-		  margin-bottom: 20px;
-	  }
+			@font-face { font-family: game_over_cre1; src: url('gameovercre1.ttf'); }
+			@font-face { font-family: choose; src: url('Air Americana.ttf'); }
 
-    </style>
-
-
+	 </style>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+	 <script defer src="app.js"></script>
+	 <script>
+	 	// Initialize Firebase
+	 		var config = {
+	 	  	  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+	 	  	  authDomain: "expertize-games.firebaseapp.com",
+	 	  	  databaseURL: "https://expertize-games.firebaseio.com",
+	 	  	  projectId: "expertize-games",
+	 	  	  storageBucket: "expertize-games.appspot.com",
+	 	  	  messagingSenderId: "839552852802"
+	 		};
+	 		firebase.initializeApp(config);
+	 	</script>
 </head>
 
-
 <body "background-color:gray;" onload="GetQuestions()">
-  	  <table id="QuestionsTable"></table>
-  	  <table id="AnswersTable"></table>'
-  	  <table id="HintsTable"></table>
-  	  <!-- <table id="QuestionsTable"></table> -->
-  	  <button onclick="GetQuestions()">Get Questions</button>
-	
-  	 <button onclick="GetAnswers()">Get Answers</button>
-  	 <button onclick="GetHints()">Get Hints</button>
-	    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-	 		<a href="/homepage" class = "btn btn-outline-success my-2 my-sm-0" role = "button">Home</a>
-	   	  	<div class="collapse navbar-collapse " id="navbarSupportedContent">
-	 			<ul class="navbar-nav">
-	   	    		<li class="nav-item">
-	 					<!-- <button class="btn btn-outline-success my-2 my-sm-0" type ="submit" data-value="login"href="#" >Create!</button> -->
-	 					<a href="/CreateChallenge" class = "btn btn-outline-success my-2 my-sm-0" role = "button">Create!</a>
-	         		</li>
-	   			</ul>
-	   		</div>
-	 	</nav>
+		 <div id="navbar">
+		 <img src="images/Expertize_Logo.png" width="646.866" height="350.38575" style="padding-left:300px;margin-bottom:-50px;margin-top:-60px;">
+		 <a class="active" href="/homepage">Home</a>
+		 <a href="CreateChallenge.html">Create</a>
+		 <a target="_blank" onclick="loginFunction()">Login</a>
+		</div>
+
+		<table id="QuestionsTable"></table>
+		<table id="AnswersTable"></table>'
+		<table id="HintsTable"></table>
+		<!-- <table id="QuestionsTable"></table> -->
+	 <button onclick="GetQuestions()">Get Questions</button>
+	 <button onclick="GetAnswers()">Get Answers</button>
+	 <button onclick="GetHints()">Get Hints</button>
+	 <button onclick="GetScore()">Submit!</button>
     	  <table id="QuestionsTable">
     	  </table>
-      <header class="header">
-        <div class = "row">
-                  <h1 class="text-white text-center" id= "QuizPageHeader">GAME OF THRONES</h1>
-        </div>
-      </header>
 
-			<form action="/action_page.php">
-		  <input type="radio" name="q1a" value="Arya"> Arya<br>
-		  <input type="radio" name="q1a" value="Sansa"> Sansa<br>
-		  <input type="radio" name="q1a" value="Rickon"> Rickon<br>
-			<input type="radio" name="q1a" value="John"> John<br>
-		  <input type="submit" value="Submit">
-			</form>
-			
-     <script>
-		// Initialize Firebase
-		var config = {
-		  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
-		  authDomain: "expertize-games.firebaseapp.com",
-		  databaseURL: "https://expertize-games.firebaseio.com",
-		  projectId: "expertize-games",
-		  storageBucket: "expertize-games.appspot.com",
-		  messagingSenderId: "839552852802"
-		};
-		firebase.initializeApp(config);
-	</script>
     </body>
 </html>
