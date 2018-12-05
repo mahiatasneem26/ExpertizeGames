@@ -149,6 +149,7 @@ function GetQuestions(){
 				var cell = row.insertCell();
 				cell.innerHTML = QuestionDictionary[QuestionID];
 				}
+				cell.className = "quizQuestionText";
 				var Hint = table.insertRow(-1);
 				var HintVal= Hint.insertCell();
 				HintVal.innerHTML = "<button onclick=\"ShowHint('"+QuestionID+"')\">Show Hint</button><div style=\"display:none\" id=\""+QuestionID+"\">"+HintsDictionary[QuestionID]+"</div>"
@@ -225,7 +226,7 @@ function GetScore(){
 				}
 			}
 		}
-		cell.innerHTML = score;
+		cell.innerHTML = "Your final score is: "+score*20+"%!";
 		});
 }
 

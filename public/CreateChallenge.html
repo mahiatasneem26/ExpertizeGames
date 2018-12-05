@@ -1,94 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<style>
-			body {
-				margin: 0;
-				font-size: 28px;
-				font-family: Arial, Helvetica, sans-serif;
-			}
+	<style>
 
-			table{
-				color: #ddd;
-			}
+	body {
+		margin: 0;
+		font-size: 30px;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.description{
+		font-family:game_over_cre1;
+		text-shadow:5px 5px 3px #785FF7;
+	}
+	form{
+		font-family:Arial, Helvetica, sans-serif;
+		font-size: 35px;
+		padding: 15px;
+		margin-left:680px;
+	}
 
-			.Hint{
-				display: none;
-			}
+	button{
+		margin-left:800px;
+	}
 
-			.header {
-				background-color: #f1f1f1;
-				padding: 10px;
-				text-align: center;
-			}
+	h1{
+		text-align: center;
+	}
 
-			#navbar {
-				overflow: hidden;
-				background-color: black;
-				border-bottom: ridge;
-				border-width:10px;
-				border-color: #785FF7;
-			}
+	#navbar {
+		overflow: hidden;
+		background-color: black;
+		border-bottom: ridge;
+		border-width:10px;
+		border-color: #785FF7;
+	}
 
-			#navbar a {
-				float: left;
-				display: block;
-				color: #f2f2f2;
-				text-align: center;
-				padding: 14px 16px;
-				text-decoration: none;
-				font-size: 17px;
-			}
+	#navbar a {
+		float: left;
+		display: block;
+		color: #f2f2f2;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 17px;
+	}
 
-			#navbar a:hover {
-				background-color: #ddd;
-				color: black;
-			}
+	#navbar a:hover {
+		background-color: #ddd;
+		color: black;
+	}
 
-			#navbar a.active {
-				background-color: #785FF7;
-				color: white;
-			}
+	#navbar a.active {
+		background-color: #785FF7;
+		color: white;
+	}
 
-			.sticky {
-				position: fixed;
-				top: 0;
-				width: 100%;
-			}
+	.sticky {
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
 
-			.sticky + .content {
-				padding-top: 0px;
-			}
+	.sticky + .content {
+		padding-top: 0px;
+	}
+	.CreateChallenge{
+		color:#ddd;
+	}
 
-			@font-face { font-family: game_over_cre1; src: url('gameovercre1.ttf'); }
-			@font-face { font-family: choose; src: url('Air Americana.ttf'); }
+	@font-face { font-family: game_over_cre1; src: url('gameovercre1.ttf'); }
+	@font-face { font-family: choose; src: url('Air Americana.ttf'); }
 
-	 </style>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
-	 <script defer src="app.js"></script>
-	 <script>
-	 	// Initialize Firebase
-	 		var config = {
-	 	  	  apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
-	 	  	  authDomain: "expertize-games.firebaseapp.com",
-	 	  	  databaseURL: "https://expertize-games.firebaseio.com",
-	 	  	  projectId: "expertize-games",
-	 	  	  storageBucket: "expertize-games.appspot.com",
-	 	  	  messagingSenderId: "839552852802"
-	 		};
-	 		firebase.initializeApp(config);
-	 	</script>
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+<script defer src="app.js"></script>
+<script>
+// Initialize Firebase
+	var config = {
+			apiKey: "AIzaSyD5EVnTBnMKyu-9qHBhBfGxDyZLTIbkQm4",
+			authDomain: "expertize-games.firebaseapp.com",
+			databaseURL: "https://expertize-games.firebaseio.com",
+			projectId: "expertize-games",
+			storageBucket: "expertize-games.appspot.com",
+			messagingSenderId: "839552852802"
+	};
+	firebase.initializeApp(config);
+</script>
 
 </head>
 
-<body>
+<body style="background-color:black;">
   <!-- navbar -->
 	<div id="navbar">
-	 <img src="images/Expertize_Logo.png" width="646.866" height="350.38575" style="padding-left:300px;margin-bottom:-50px;margin-top:-60px;">
-	 <a class="active" href="/homepage">Home</a>
-	 <a href="CreateChallenge.html">Create</a>
+		<img src="images/Expertize_Logo.png" width="646.866" height="350.38575" style="padding-left:350px;margin-bottom:-50px;margin-top:-60px;">
+		<a class="active" href="/homepage">Home</a>
+		<a href="CreateChallenge.html">Create</a>
 	</div>
 
 	<div class="CreateChallenge" id = "CreateChallenge">
@@ -96,7 +104,7 @@
 	 	<header class="header">
 		 	<div class="container">
 		 		<div class="description ">
-		    		<h1 class = "text-dark" text-dark >
+		    		<h1>
 						Create your own challenge here:
 					</h1>
 		   	 	</div>
@@ -115,7 +123,7 @@
 	    	  		</div>
 	    	 		<div class="form-group col-md-4">
 	      				<label for="showName">  Set </label>
-	     	   	 		<input type="text" class="form-control" id="setInput" placeholder="Set One/Set Two">
+	     	   	 		<input type="text" class="form-control" id="setInput" placeholder="Set One">
 	    	  		</div>
 	  	  	  </div>
 		  </form>

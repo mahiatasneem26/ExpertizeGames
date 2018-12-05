@@ -60,6 +60,10 @@
 				padding-top: 0px;
 			}
 
+			.quizQuestionText {
+				margin-top: 40px;
+			}
+
 			@font-face { font-family: game_over_cre1; src: url('gameovercre1.ttf'); }
 			@font-face { font-family: choose; src: url('Air Americana.ttf'); }
 
@@ -89,13 +93,8 @@
 		 <a href="CreateChallenge.html">Create</a>
 		</div>
 
-		<p><table id="QuestionsTable"></table></p>
-		<p><table style="padding-bottom:30px;" id="AnswersTable"></table></p>
-		<p  style="margin-bottom:10px;"><table id="HintsTable"></table></p>
-		<!-- <table id="QuestionsTable"></table> -->
-	 <button onclick="GetScore()">Submit!</button>
-    	  <table id="QuestionsTable">
-    	  </table>
-
+		<table id="QuestionsTable"></table>
+		<table id="AnswersTable"></table>
+		<button onclick="GetScore()">Submit!</button>
     </body>
 </html>
